@@ -20,7 +20,7 @@ public class OOValidator {
 				System.out.println("Invalid Number:Try Again");
 				sc.nextLine();
 			}
-		}	
+		}
 		sc.nextLine();
 		return num;
 	}
@@ -41,7 +41,7 @@ public class OOValidator {
 			} else {
 				isValid = true;
 			}
-		}		
+		}
 		return num;
 	}
 
@@ -58,7 +58,7 @@ public class OOValidator {
 				System.out.println("Invalid Double :");
 				sc.nextLine();
 			}
-		} while (isValid == false);	
+		} while (isValid == false);
 		sc.nextLine();
 		return num;
 	}
@@ -78,7 +78,7 @@ public class OOValidator {
 			} else {
 				isValid = true;
 			}
-		} while (isValid == false);		
+		} while (isValid == false);
 		return num;
 	}
 
