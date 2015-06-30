@@ -1,73 +1,52 @@
 import java.util.Scanner;
 
 public class OOValidator {
-	Scanner sc = new Scanner(System.in);
+	Scanner sc;// = new Scanner(System.in);
 
 	public OOValidator(Scanner sc) {
 		this.sc = sc;
 	}
 
 	public int getInt(String prompt) {
-		int num = 0;
-		boolean isValid = false;
-
-		while (isValid == false) {
+		while (true) {
 			System.out.print(prompt);
-			if (sc.hasNextInt()) {
-				num = sc.nextInt();
-				isValid = true;
-			} else {
-				System.out.println("Invalid Number:Try Again");
-				sc.nextLine();
-			}
+			if (sc.hasNextInt())
+				return sc.nextInt();
+			System.out.println("Invalid Number:Try Again");
+			sc.nextLine();
 		}
-		sc.nextLine();
-		return num;
 	}
 
 	public int getIntWithinRange(String prompt, int min, int max) {
 		int num = 0;
-		boolean isValid = false;
-		num = getInt(prompt);
-		while (isValid == false) {
-			if (num < min) {
+		while (true) {
+			num = getInt(prompt);
+			if (num < min)
 				System.out.printf("Error: number must be greater than %d \n",
 						min - 1);
-				num = getInt(prompt);
-			} else if (num > max) {
+			else if (num > max)
 				System.out.printf("Error: number must be less than %d \n",
 						max + 1);
-				num = getInt(prompt);
-			} else {
-				isValid = true;
-			}
+			else
+				return num;
 		}
-		return num;
+
 	}
 
 	public double getDouble(String prompt) {
-		double num = 0;
-		boolean isValid = false;
-
-		do {
+		while (true) {
 			System.out.println(prompt);
 			if (sc.hasNextDouble()) {
-				num = sc.nextDouble();
-				isValid = true;
-			} else {
-				System.out.println("Invalid Double :");
-				sc.nextLine();
+				return sc.nextDouble();
 			}
-		} while (isValid == false);
-		sc.nextLine();
-		return num;
+			System.out.println("Invalid Double :");
+			sc.nextLine();
+		}
 	}
 
 	public double getDoubleWithinRange(String prompt, double min, double max) {
 		double num = 0;
-		boolean isValid = false;
-
-		do {
+		while (true) {
 			num = getDouble(prompt);
 			if (num < min) {
 				System.out.printf("Error: number must be greater than %f \n",
@@ -75,11 +54,9 @@ public class OOValidator {
 			} else if (num > max) {
 				System.out.printf("Error: number must be less than %f \n",
 						max + 1);
-			} else {
-				isValid = true;
 			}
-		} while (isValid == false);
-		return num;
+			return num;
+		}
 	}
 
 }

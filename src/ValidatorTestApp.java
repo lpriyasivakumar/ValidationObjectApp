@@ -14,6 +14,9 @@ public class ValidatorTestApp {
 		double decimalNumber = val.getDoubleWithinRange("Enter a number between -100.0 and 100.0",-100, 100);		
 		System.out.println("You entered " +decimalNumber );
 		
+		String s = val.getRequiredString("Enter a string: ");
+		System.out.println(s);
+		
 		sc.close();
 	}
 
